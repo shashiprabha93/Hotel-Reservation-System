@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Standard Rooms" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f48c0f5-b74e-4e1d-8e39-a612e50c9cfe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="251"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     hotelrooms.`RoomId` AS hotelrooms_RoomId,
+     hotelrooms.`RoomName` AS hotelrooms_RoomName,
+     hotelrooms.`Bed` AS hotelrooms_Bed
+FROM
+     `hotelrooms` hotelrooms
+WHERE
+     hotelrooms.`RoomName`='Standard' and hotelrooms.`BookingStatus`=1]]>
+	</queryString>
+	<field name="hotelrooms_RoomId" class="java.lang.String"/>
+	<field name="hotelrooms_RoomName" class="java.lang.String"/>
+	<field name="hotelrooms_Bed" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="0" width="289" height="45" forecolor="#A90000" uuid="005e3adb-91c4-4e08-b77e-f287a2a85b26"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Available Rooms]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="73" y="0" width="114" height="20" uuid="ce153cf8-d595-46d0-92c7-fba5f3e3fd9a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Room Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="0" width="134" height="20" uuid="8f1f9577-843c-401e-a248-dff289810718"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Room Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="0" width="123" height="20" uuid="c6732a46-8696-4623-a16f-5a99cdc380e7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bed]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="73" y="0" width="114" height="20" uuid="2fa43df5-c5e0-4029-8df0-695bb512581e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hotelrooms_RoomId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="0" width="134" height="20" uuid="7bc493d5-ba2c-432d-96cf-badef5585288"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hotelrooms_RoomName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="0" width="123" height="20" uuid="2a0142be-d7c1-4ebf-b4e4-7d2cb190d18a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hotelrooms_Bed}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="342" splitType="Stretch">
+			<image>
+				<reportElement x="13" y="109" width="244" height="153" uuid="f913231a-79e2-4c8a-a731-dea9a2a133e2"/>
+				<imageExpression><![CDATA["C:\\Users\\ADMIN\\Documents\\NetBeansProjects\\hotel\\Standard2.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="278" y="160" width="248" height="171" uuid="ab6fb1a6-f088-4214-a9fe-33b716e29c58"/>
+				<imageExpression><![CDATA["C:\\Users\\ADMIN\\Documents\\NetBeansProjects\\hotel\\Standard3.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

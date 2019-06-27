@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rooms" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efaf10d4-ee3d-4194-81bc-a26160575fb8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<parameter name="RoomName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     resevationdetails.`CustomerName` AS resevationdetails_CustomerName,
+     hotelrooms.`RoomName` AS hotelrooms_RoomName,
+     hotelrooms.`Bed` AS hotelrooms_Bed
+FROM
+     `resevationdetails` resevationdetails INNER JOIN `reservedroom` reservedroom ON resevationdetails.`ReservationId` = reservedroom.`ReservationId`
+     INNER JOIN `hotelrooms` hotelrooms ON reservedroom.`RoomId` = hotelrooms.`RoomId`
+WHERE
+     hotelrooms.`RoomName`=$P{RoomName}]]>
+	</queryString>
+	<field name="resevationdetails_CustomerName" class="java.lang.String"/>
+	<field name="hotelrooms_RoomName" class="java.lang.String"/>
+	<field name="hotelrooms_Bed" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="148" y="0" width="284" height="44" forecolor="#B40000" uuid="1211505d-16a2-40ce-8912-3bdd3ecb377a"/>
+				<textElement textAlignment="Center">
+					<font size="24" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Reserved Rooms]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="62" y="0" width="111" height="20" uuid="32a04fcf-ae62-4c9f-a3cf-ba263ea263a0"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Room Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="105" height="20" uuid="48ca438c-925d-4359-9d1e-3f641cd28894"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="120" height="20" uuid="a84c0fce-ace0-4a2f-9e3f-b96f1d0f18af"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="62" y="0" width="111" height="20" uuid="4559266d-62a3-4faa-879f-8479f7b4932a"/>
+				<textFieldExpression><![CDATA[$F{hotelrooms_RoomName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="0" width="105" height="20" uuid="36791a1a-17c5-4a24-8559-1b173e951fcd"/>
+				<textFieldExpression><![CDATA[$F{hotelrooms_Bed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="0" width="120" height="20" uuid="1ece945f-4657-4e27-9e4a-a5cc9b3a9caf"/>
+				<textFieldExpression><![CDATA[$F{resevationdetails_CustomerName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

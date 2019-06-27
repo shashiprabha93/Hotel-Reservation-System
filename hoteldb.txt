@@ -1,0 +1,224 @@
+--Table structure for table `hotelrooms`
+
+CREATE TABLE IF NOT EXISTS hotelrooms (
+
+   RoomId char(5) NOT NULL ,
+  
+   RoomName varchar(50) DEFAULT NULL,
+  
+   Bed varchar(20) DEFAULT NULL,
+  
+   BookingStatus tinyint(1) NOT NULL,
+   constraint hotelrooms_pk primary key (RoomId),
+
+   constraint hotelrooms_fk foreign key (RoomName,Bed) references roomtype
+)
+
+Insert queries for 'hotelrooms'
+
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES
+('DED01', 'Deluxe', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('DED02', 'Deluxe', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('DED03', 'Deluxe', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('DES01', 'Deluxe', 'Single', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('DES02', 'Deluxe', 'Single', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('DES03', 'Deluxe', 'Single', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STD01', 'Standard', 'Double', 1)
+;
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STD02', 'Standard', 'Double', 1)
+;
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STD03', 'Standard', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STS01', 'Standard', 'Single', 0);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STS02', 'Standard', 'Single', 1)
+;
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('STS03', 'Standard', 'Single', 0);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUD01', 'Suite', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUD02', 'Suite', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUD03', 'Suite', 'Double', 1);
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUS01', 'Suite', 'Single', 0)
+;
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUS02', 'Suite', 'Single', 1)
+;
+INSERT INTO hotelrooms (`RoomId`, `RoomName`, `Bed`, `BookingStatus`) VALUES('SUS03', 'Suite', 'Single', 1);
+
+
+--Table structure for table `roomtype`
+
+
+
+
+CREATE TABLE IF NOT EXISTS roomtype (
+  
+   RoomName varchar(20) NOT NULL,
+  
+   Bed varchar(20) NOT NULL,
+  
+   RoomOnlyPrice float NOT NULL,
+  
+   AvailableRooms int(11) NOT NULL,
+   constraint roomtype_pk primary key (RoomName,Bed)
+)
+
+Insert queries for 'roomtype'
+
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES
+('Deluxe', 'Double', 230, 3);
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES('Deluxe', 'Single', 200, 3;
+
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES('Standard', 'Double', 134, 3);
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES('Standard', 'Single', 122, 1);
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES('Suite', 'Double', 365, 3);
+INSERT INTO roomtype (`RoomName`, `Bed`, `RoomOnlyPrice`, `AvailableRooms`) VALUES('Suite', 'Single', 350, 2);
+
+
+-- Table structure for table `servicesandpakages`
+
+
+
+
+CREATE TABLE IF NOT EXISTS servicesandpakages (
+  
+   SPcode char(5) NOT NULL,
+  
+   Stype varchar(50) NOT NULL,
+  
+   SPname varchar(500) NOT NULL,
+  
+   SPprice double NOT NULL,
+   constraint servicesandpakages_pk primary key (SPcode)  
+)
+
+Insert queries for `servicesandpakages`
+
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES
+('1', 'as', 'Airport pickup: We will send a limo to pick you up from the airport ( pick up time has to be arranged through telephone or email)', 100)
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES('2', 'as', 'VIP pool access: Get access to our exclusive heated pool with open bar form 5.00 pm to 3.00 am', 500)
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES('3', 'as', 'Babysitter on request:We will give babysitting service for parents at daytime', 1000)
+
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES('4', 'pk', 'Helicopter tour: See Trincomalee from a bird's eye view (heli tour can be cancelled due to bad weather but full refund will be given)', 750)
+
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES('5', 'pk', 'Water sports :Experience the exciting watersports adventure in Bentota', 1000)
+INSERT INTO servicesandpakages (`SPcode`, `Stype`, `SPname`, `SPprice`) VALUES('6', 'pk', 'Luxury train tour to Nuwara Eliya: Travel to Nuwara Eliya with the Experience of traditional hospitality with the glamour of the Rajadhani Express', 1000)
+
+
+--Table structure for table `user`
+
+CREATE TABLE IF NOT EXISTS user(
+  
+   username varchar(20) NOT NULL,
+  
+   password varchar(10) NOT NULL,
+  
+   type varchar(20) NOT NULL,
+   constraint_pk primary key (username,password)
+
+)
+
+Insert queries for `user`
+
+INSERT INTO user (`username`, `password`, `type`) VALUES
+('Amal', '125', 're') 
+
+INSERT INTO user (`username`, `password`, `type`) VALUES('Arjuna', 'Arjuna1', 'ma') 
+
+INSERT INTO user (`username`, `password`, `type`) VALUES('Gihan', 'Gihan1', 'ma')
+INSERT INTO user (`username`, `password`, `type`) VALUES('Sachini', '124', 're')
+INSERT INTO user (`username`, `password`, `type`) VALUES('Sajun', '123', 're')
+
+
+--Table structure for table `resevationdetails`
+
+CREATE TABLE IF NOT EXISTS resevationdetails (
+
+   ReservationId int(11) NOT NULL AUTO_INCREMENT,
+  
+   CustomerName varchar(50) NOT NULL,
+  
+   ContactNo int(10) NOT NULL,
+  
+   CheckInDate date NOT NULL,
+  
+   CheckOutDate date NOT NULL,
+  
+   Email varchar(50) NOT NULL,
+  
+   Address varchar(100) NOT NULL,
+  
+   TotalAmount float NOT NULL
+,
+   constraint resevationdetails_pk primary key (ReservationId)
+)
+
+Data are inserted when the button click event performed.
+
+
+-- Table structure for table `reservedroom`
+
+
+
+CREATE TABLE IF NOT EXISTS reservedroom (
+  
+   ReservationId int(11) NOT NULL DEFAULT '0',
+  
+   RoomId char(5) NOT NULL ,
+   constraint reservedroom_pk primary key (ReservationId,RoomId),
+   constraint reservedroom_fk1 foreign key (ReservationId) references resevationdetails(ReservationId),
+   constraint reservedRoom_fk2 foreign key (RoomId) references hotelrooms(RoomId)
+)
+
+Data are inserted when the button click event performed.
+
+
+
+-- Table structure for table `reservedservice`
+
+
+
+
+CREATE TABLE IF NOT EXISTS reservedservice (
+  
+   ReservationId int(11) NOT NULL DEFAULT '0',
+  
+   SPcode char(5) NOT NULL,
+   constraint reservedservice_fk foreign key (ReservationId) references resevationdetails(ReservationId)  
+)
+
+Data are inserted when the button click event performed. 
+
+
+
+-- Table structure for table `oldde`
+
+
+
+
+CREATE TABLE IF NOT EXISTS oldde (
+  
+   ReservationId int(11) NOT NULL,
+  
+   CustomerName varchar(50) NOT NULL,
+  
+   CheckInDate date NOT NULL,
+  
+   CheckOutDate date NOT NULL
+,
+   constraint oldde_pk primary key (ReservationId)
+)
+
+Data are inserted when the button click event performed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
